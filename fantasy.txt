@@ -1,0 +1,109 @@
+# =======================================================
+# ⚔️ 마인크래프트 판타지 & RPG 대모험 모드팩 (Fabric 1.20.1)
+# 이 파일을 EasyDownloader.exe 창 안으로 드래그 앤 드롭하세요!
+# =======================================================
+
+VERSION=1.20.1
+LOADER=fabric
+
+# =======================================================
+# 🚀 1. 기반 및 초고성능 프레임 최적화 (200+ FPS 보장)
+# =======================================================
+https://modrinth.com/mod/fabric-api
+https://modrinth.com/mod/sodium
+https://modrinth.com/mod/indium
+https://modrinth.com/mod/iris
+https://modrinth.com/mod/lithium
+https://modrinth.com/mod/ferrite-core
+https://modrinth.com/mod/immediatelyfast
+https://modrinth.com/mod/entityculling
+
+# =======================================================
+# 🔨 2. 대장간 & 무기 제작 (팅커스 컨스트럭트 + 고유 무기)
+# =======================================================
+# [팅커스 정식 Fabric 포트] 용광로 금속 주조, 부품 커스텀 조합 도구/무기 제작
+https://modrinth.com/mod/hephaestus
+
+# [팅커스 확장팩] 다양한 광물 및 추가 금속 부품 호환 확장
+https://modrinth.com/mod/hephaestusplus
+
+# [심플리 소드] 클레이모어, 트윈블레이드, 낫, 카타나 등 15종 이상의 판타지 유니크 무기 & 특수 스킬
+https://modrinth.com/mod/simply-swords
+
+# [베터 컴뱃] 무기별 3D 역동적 공격 모션, 콤보 연계기, 현실적인 타격감
+https://modrinth.com/mod/better-combat
+
+# =======================================================
+# 🧙‍♂️ 3. 판타지 클래스 & 마법 시스템 (RPG Series 정식 세트)
+# =======================================================
+# [마법사 - Wizards] 파이어볼, 프로스트 노바, 아케인 미사일 주문 시전 및 마법서/완드
+https://modrinth.com/mod/wizards
+
+# [성기사 & 사제 - Paladins & Priests] 신성 망치, 아군 치유(힐링), 언데드 정화 및 신성 방패
+https://modrinth.com/mod/paladins-and-priests
+
+# [궁수 - Archers] 원거리 저격, 특수 원소 마법 화살 및 레인저 스킬
+https://modrinth.com/mod/archers
+
+# [도적 & 전사 - Rogues & Warriors] 단검 기습 암살 및 대검 분쇄 돌진 공격
+https://modrinth.com/mod/rogues-and-warriors
+
+# =======================================================
+# 🐉 4. 신화 속 비행 탈것 & 고대 유물/보물
+# =======================================================
+# [미식 마운트] 하늘을 나는 그리핀, 드래곤, 거대 박쥐, 나이트메어 등 판타지 탈것 길들이기
+https://modrinth.com/mod/mythic-mounts
+
+# [아티팩트] 던전 상자 깊은 곳에서만 나오는 마법 반지, 날개 신발 등 희귀 유물 장신구
+https://modrinth.com/mod/artifacts
+
+# [베터 아키올로지] 고대 지하 유적 탐사, 화석 발굴 및 전설의 유물 복원
+https://modrinth.com/mod/better-archeology
+
+# =======================================================
+# 🏰 5. 웅장한 던전 탐험 & 보스 레이드
+# =======================================================
+# [보스 오브 매스 디스트럭션] 흑요석 거인, 밤의 리치 등 화려한 패턴의 4대 판타지 레이드 보스
+https://modrinth.com/mod/bosses-of-mass-destruction
+
+# [웬 던전 어라이즈] 하늘에 떠 있는 거대 공중 범선, 언데드 해적선, 끝없는 미궁 요새 던전
+https://modrinth.com/mod/when-dungeons-arise
+
+# =======================================================
+# 🏕️ 6. 판타지 모험 생활 & 입체 음향 & 몰입감
+# =======================================================
+# [웨이스톤] 마을, 던전, 거점 간을 순간이동할 수 있는 정통 RPG 이동 비석
+https://modrinth.com/mod/waystones
+
+# [파머스 딜라이트] 중세 판타지 선술집 느낌의 요리 냄비, 스튜, 만찬 시스템
+https://modrinth.com/mod/farmers-delight-refabricated
+
+# [트래블러 백팩] 물/용암 호스, 침낭, 대용량 보관함이 달린 모험가 전용 배낭
+https://modrinth.com/mod/travelersbackpack
+
+# [사운드 피직스] 동굴, 던전, 사원에서 실시간으로 울려 퍼지는 웅장한 공간 음향 리버브
+https://modrinth.com/mod/sound-physics-remastered
+
+# [비주얼리티] 칼부림, 마법 시전, 화염 타격 시 튀는 화려한 판타지 파티클 연출
+https://modrinth.com/mod/visuality
+
+# =======================================================
+# 🧭 7. 편의성 UI & 친구 멀티플레이
+# =======================================================
+# [JEI] 마법서, 팅커스 도구, 모드 아이템 조합법 사전
+https://modrinth.com/mod/jei
+
+# [Jade] 몬스터 체력, 보스 상태, 블록 정보 실시간 HUD
+https://modrinth.com/mod/jade
+
+# [자이로스 미니맵 & 월드맵] 던전 위치 확인 및 사망 지점/거점 웨이포인트
+https://modrinth.com/mod/xaeros-minimap
+
+# [에센셜] 포트포워딩이나 하마치 없이 친구를 클릭 한 번으로 초대하여 함께 플레이
+https://modrinth.com/mod/essential
+
+# =======================================================
+# ✨ 8. 판타지 감성 쉐이더 (shaderpacks/ 자동 분류)
+# =======================================================
+# [컴플리멘터리 언바운드] 마법 오로라, 횃불 빛, 달빛 반사 등 판타지에 최적화된 쉐이더
+https://modrinth.com/shader/complementary-unbound

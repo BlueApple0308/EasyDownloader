@@ -1,0 +1,54 @@
+name: Build & Sign
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build EasyDownloader.exe
+        shell: cmd
+        run: client\build.bat
+
+      - name: Upload unsigned artifact
+        id: upload-unsigned
+        uses: actions/upload-artifact@v4
+        with:
+          name: EasyDownloader-unsigned
+          path: client/dist/EasyDownloader.exe
+
+      # SignPath 승인 후 저장소 Settings에 SIGNPATH_ORGANIZATION_ID(변수)와
+      # SIGNPATH_API_TOKEN(시크릿)을 등록하면 자동으로 서명 단계가 켜집니다.
+      - name: Sign with SignPath
+        if: ${{ vars.SIGNPATH_ORGANIZATION_ID != '' }}
+        uses: signpath/github-action-submit-signing-request@v1
+        with:
+          api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+          organization-id: ${{ vars.SIGNPATH_ORGANIZATION_ID }}
+          project-slug: EasyDownloader
+          signing-policy-slug: release-signing
+          github-artifact-id: ${{ steps.upload-unsigned.outputs.artifact-id }}
+          wait-for-completion: true
+          output-artifact-directory: signed
+
+      - name: Pick release file
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force release | Out-Null
+          $exe = if (Test-Path signed\EasyDownloader.exe) { 'signed\EasyDownloader.exe' } else { 'client\dist\EasyDownloader.exe' }
+          Copy-Item $exe release\
+          Copy-Item *.txt release\
+
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release/*

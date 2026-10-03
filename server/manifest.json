@@ -1,0 +1,41 @@
+{
+  "pack_name": "서버 공식 모드팩",
+  "version": "1.0.0",
+  "game_type": "minecraft",
+  "minecraft_version": "1.20.1",
+  "loader": "Fabric",
+  "auto_cleanup": true,
+  "notice": "모드 설치 전 마인크래프트를 완전히 종료해주세요!",
+  "files": [
+    {
+      "id": "sample-1",
+      "name": "Fabric API (필수 라이브러리)",
+      "filename": "fabric-api-0.92.2+1.20.1.jar",
+      "target_dir": "mods",
+      "url": "https://github.com/FabricMC/fabric/releases/download/0.92.2%2B1.20.1/fabric-api-0.92.2+1.20.1.jar",
+      "size_kb": 2100,
+      "sha256": "",
+      "description": "Fabric 모드 실행을 위한 필수 코어 라이브러리"
+    },
+    {
+      "id": "sample-2",
+      "name": "Sodium (소듐 그래픽 최적화)",
+      "filename": "sodium-fabric-0.5.11+mc1.20.1.jar",
+      "target_dir": "mods",
+      "url": "https://cdn.modrinth.com/data/AANobbMI/versions/0.5.11+mc1.20.1/sodium-fabric-0.5.11+mc1.20.1.jar",
+      "size_kb": 1300,
+      "sha256": "",
+      "description": "프레임 향상 및 렌더링 최적화"
+    },
+    {
+      "id": "sample-3",
+      "name": "Iris Shaders (아이리스 쉐이더)",
+      "filename": "iris-1.7.0+1.20.1.jar",
+      "target_dir": "mods",
+      "url": "https://cdn.modrinth.com/data/YL57xq9U/versions/1.7.0+1.20.1/iris-1.7.0+1.20.1.jar",
+      "size_kb": 2600,
+      "sha256": "",
+      "description": "소듐 호환 고성능 쉐이더 로더"
+    }
+  ]
+}

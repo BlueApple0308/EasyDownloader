@@ -1,0 +1,68 @@
+# =======================================================
+# 마인크래프트 최신 버전 26.2 Fabric 테크/산업 모드팩
+# 이 파일을 EasyDownloader.exe 창 안으로 드래그 앤 드롭하세요!
+# =======================================================
+
+VERSION=26.2
+LOADER=fabric
+
+# =======================================================
+# [기반 및 그래픽/엔진 최적화 / 핵심 필수 라이브러리]
+# =======================================================
+https://modrinth.com/mod/fabric-api
+https://modrinth.com/mod/sodium
+https://modrinth.com/mod/iris
+https://modrinth.com/mod/lithium
+https://modrinth.com/mod/ferrite-core
+https://modrinth.com/mod/immediatelyfast
+https://modrinth.com/mod/entityculling
+https://modrinth.com/mod/forge-config-api-port
+https://modrinth.com/mod/fabric-language-kotlin
+
+# =======================================================
+# [메인 기계공학 & 테크 익스펜션(확장팩)]
+# =======================================================
+# 1. 테크 리본 (산업모드 IC2 정식 계승작 - 발전기, 광석가공, 전력망, 퀀텀슈트)
+https://modrinth.com/mod/techreborn
+https://modrinth.com/mod/reborncore
+
+# 2. 어드밴스드 리본 (Advanced Reborn - 14단계 초고출력 태양광, 자동 농사/벌목기, 산업배터리)
+https://modrinth.com/mod/advanced-reborn
+https://modrinth.com/mod/architectury-api
+https://modrinth.com/mod/mcpitanlibarch
+
+# 3. 테크 리본 업그레이드 확장 (New Upgrades - 극한의 가공 속도 오버클러커/변압기)
+https://modrinth.com/mod/tech-reborn-new-upgrades
+
+# =======================================================
+# [테크 전용 시너지 & 편의성 & 멀티]
+# =======================================================
+# 1. 기계 전력량(E/FE) & 작업 진행률 실시간 HUD 표시 (테크 모드 필수품)
+https://modrinth.com/mod/jade
+
+# 2. 톰스 심플 스토리지 (광물 자동 분류 및 원격 무선 창고 모니터)
+https://modrinth.com/mod/toms-storage
+
+# 3. 트래블러 백팩 (대용량 광물 수집, 물/용암 호스, 침낭 내장 배낭)
+https://modrinth.com/mod/travelersbackpack
+
+# 4. 베인마이너 (광맥 일괄 채굴로 자원 수집 시간 단축)
+https://modrinth.com/mod/veinminer
+
+# 5. 레시피 가이드 (JEI - 기계 조합법 및 용도 검색)
+https://modrinth.com/mod/jei
+
+# 6. 미니맵 (웨이포인트 및 주변 지형 탐색)
+https://modrinth.com/mod/xaeros-minimap
+
+# 7. 친구와 멀티 (에센셜 - 서버 구축 없이 친구 초대)
+https://modrinth.com/mod/essential
+
+# =======================================================
+# [쉐이더] 인기 쉐이더 Top 5 (shaderpacks/ 폴더로 자동 분류)
+# =======================================================
+https://modrinth.com/shader/complementary-unbound
+https://modrinth.com/shader/complementary-reimagined
+https://modrinth.com/shader/bsl-shaders
+https://modrinth.com/shader/solas-shader
+https://modrinth.com/shader/makeup-ultra-fast-shaders

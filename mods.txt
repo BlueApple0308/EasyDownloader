@@ -1,0 +1,24 @@
+# 서버 공식 모드팩 설정 파일
+# 이 파일을 간편 설치기(EasyDownloader.exe)에 드래그 앤 드롭하세요!
+
+#VERSION=1.20.1
+#LOADER=fabric
+
+# Modrinth 모드/쉐이더/리소스팩 링크를 아래에 붙여넣으세요.
+# 링크 종류(mod/shader/resourcepack)를 자동으로 인식하여
+# mods/, shaderpacks/, resourcepacks/ 폴더에 알아서 설치됩니다.
+
+# === 모드 ===
+#https://modrinth.com/mod/sodium
+#https://modrinth.com/mod/iris
+#https://modrinth.com/mod/fabric-api
+#https://modrinth.com/mod/lithium
+
+# === 쉐이더팩 ===
+https://modrinth.com/shader/complementary-unbound
+
+# === 리소스팩 ===
+# https://modrinth.com/resourcepack/faithful-32x
+
+# 직링크도 지원됩니다 (mods/ 폴더에 저장됨):
+# https://example.com/custom-mod-1.0.jar

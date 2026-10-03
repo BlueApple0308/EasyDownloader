@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>간편 다운로더 모드팩 관리자</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- 상단 헤더 -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo-icon">📦</div>
+        <div>
+          <h1>간편 다운로더 어드민 대시보드</h1>
+          <p class="subtitle">게임 모드 및 설정 파일을 직링크로 등록하고 원클릭 배포하세요</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="btnExportJson" class="btn btn-secondary">📥 JSON 내보내기</button>
+        <button id="btnImportJson" class="btn btn-secondary">📤 JSON 불러오기</button>
+        <input type="file" id="fileInputJson" accept=".json" style="display: none;">
+        <button id="btnSaveServer" class="btn btn-primary">💾 서버에 저장하기</button>
+      </div>
+    </header>
+
+    <!-- 상단 안내 바 (클라이언트 연동 URL) -->
+    <section class="api-info-bar">
+      <div class="api-info-content">
+        <span class="badge">클라이언트 API 주소</span>
+        <code id="apiEndpointUrl">http://localhost:5000/api/manifest</code>
+        <button id="btnCopyApiUrl" class="btn-sm">복사</button>
+      </div>
+      <div class="api-hint">
+        💡 플레이어가 실행할 간편 다운로더 프로그램에 위 주소(또는 공인IP/도메인)를 등록하면 모드를 바로 받습니다.
+      </div>
+    </section>
+
+    <!-- 메인 컨텐츠 그리드 -->
+    <main class="main-content">
+      <!-- 좌측: 모드팩 기본 설정 -->
+      <div class="card config-card">
+        <h2>⚙️ 모드팩 기본 설정</h2>
+        <div class="form-group">
+          <label for="inputPackName">모드팩 이름</label>
+          <input type="text" id="inputPackName" placeholder="예: 서버 공식 모드팩">
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="inputVersion">배포 버전</label>
+            <input type="text" id="inputVersion" placeholder="예: 1.0.0">
+          </div>
+          <div class="form-group col">
+            <label for="inputGameType">게임 종류</label>
+            <select id="inputGameType">
+              <option value="minecraft" selected>마인크래프트 (Minecraft)</option>
+              <option value="general">일반 게임/프로그램</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="inputMcVersion">마크 버전</label>
+            <input type="text" id="inputMcVersion" placeholder="예: 1.20.1">
+          </div>
+          <div class="form-group col">
+            <label for="inputLoader">모드 로더</label>
+            <select id="inputLoader">
+              <option value="Fabric">Fabric (패브릭)</option>
+              <option value="Forge">Forge (포지)</option>
+              <option value="NeoForge">NeoForge (네오포지)</option>
+              <option value="Quilt">Quilt (퀼트)</option>
+              <option value="None">해당 없음</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputNotice">유저 알림 메시지 (다운로더 상단에 표시)</label>
+          <textarea id="inputNotice" rows="2" placeholder="예: 설치 전 마인크래프트를 완전히 종료해주세요!"></textarea>
+        </div>
+
+        <div class="toggle-group">
+          <label class="switch">
+            <input type="checkbox" id="inputAutoCleanup" checked>
+            <span class="slider round"></span>
+          </label>
+          <div class="toggle-label">
+            <strong>구버전/미등록 모드 자동 정리 (권장)</strong>
+            <p>서버 목록에 없는 구버전 모드 파일을 자동으로 삭제하여 모드 충돌 및 게임 튕김을 방지합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 우측: 모드 파일 목록 및 관리 -->
+      <div class="card files-card">
+        <div class="files-header">
+          <div>
+            <h2>📂 등록된 모드 및 파일 목록 (<span id="fileCount">0</span>개)</h2>
+            <p class="subtitle">모드 파일 직링크를 등록해두면 다운로더가 즉시 받아 설치합니다</p>
+          </div>
+          <button id="btnOpenAddModal" class="btn btn-accent">+ 파일 추가</button>
+        </div>
+
+        <div class="table-container">
+          <table class="files-table">
+            <thead>
+              <tr>
+                <th style="width: 25%;">모드 / 파일명</th>
+                <th style="width: 15%;">설치 위치</th>
+                <th style="width: 35%;">다운로드 링크</th>
+                <th style="width: 10%;">예상 크기</th>
+                <th style="width: 15%;">관리</th>
+              </tr>
+            </thead>
+            <tbody id="fileTableBody">
+              <!-- JS로 동적 렌더링 -->
+            </tbody>
+          </table>
+          <div id="emptyMessage" class="empty-state" style="display: none;">
+            등록된 모드가 없습니다. [+ 파일 추가] 버튼을 눌러 모드를 등록해보세요!
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- 모드 추가 / 수정 모달 -->
+  <div id="fileModal" class="modal-overlay" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalTitle">모드 / 파일 추가</h3>
+        <button id="btnCloseModal" class="btn-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="editFileId">
+        
+        <div class="form-group">
+          <label for="modalInputName">모드 이름 (유저가 보게 될 명칭) <span class="req">*</span></label>
+          <input type="text" id="modalInputName" placeholder="예: 소듐 그래픽 최적화 모드">
+        </div>
+
+        <div class="form-group">
+          <label for="modalInputUrl">
+            다운로드 링크 (직링크) <span class="req">*</span>
+            <span class="hint-tag">Dropbox, Google Drive, GitHub Release, 직링크 지원</span>
+          </label>
+          <div class="input-with-action">
+            <input type="url" id="modalInputUrl" placeholder="https://... 다운로드 링크 붙여넣기">
+            <button type="button" id="btnAutoConvertUrl" class="btn-sm btn-secondary">링크 자동 변환</button>
+          </div>
+          <div id="urlHelperNotice" class="url-helper-box">
+            💡 구글 드라이브나 드롭박스 공유 링크를 붙여넣고 [링크 자동 변환]을 누르면 즉시 직링크로 변경됩니다.
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="modalInputFilename">저장될 파일명 (확장자 포함) <span class="req">*</span></label>
+            <input type="text" id="modalInputFilename" placeholder="예: sodium-fabric-0.5.11.jar">
+          </div>
+          <div class="form-group col">
+            <label for="modalInputTargetDir">설치 대상 폴더</label>
+            <select id="modalInputTargetDir">
+              <option value="mods" selected>mods (모드 폴더)</option>
+              <option value="config">config (모드 설정 폴더)</option>
+              <option value="shaderpacks">shaderpacks (쉐이더팩)</option>
+              <option value="resourcepacks">resourcepacks (리소스팩)</option>
+              <option value="custom">직접 입력...</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group" id="customTargetDirGroup" style="display: none;">
+          <label for="modalInputCustomDir">상대 경로 직접 입력 (기준: 게임 루트 폴더)</label>
+          <input type="text" id="modalInputCustomDir" placeholder="예: config/custom_mod">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="modalInputSize">예상 파일 크기 (KB 단위, 선택)</label>
+            <input type="number" id="modalInputSize" placeholder="예: 2500 (2.5MB)">
+          </div>
+          <div class="form-group col">
+            <label for="modalInputSha256">SHA-256 해시값 (선택 - 비워두면 크기로 검사)</label>
+            <input type="text" id="modalInputSha256" placeholder="비워두셔도 자동 작동합니다">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="modalInputDesc">설명 / 용도 (선택)</label>
+          <input type="text" id="modalInputDesc" placeholder="예: FPS 향상을 위한 필수 최적화 모드입니다.">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btnCancelModal" class="btn btn-secondary">취소</button>
+        <button id="btnSaveModal" class="btn btn-primary">목록에 적용</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

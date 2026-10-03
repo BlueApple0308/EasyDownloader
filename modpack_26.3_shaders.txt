@@ -1,0 +1,39 @@
+# =======================================================
+# 마인크래프트 26.3 Fabric 쉐이더 모드팩
+# 이 파일을 EasyDownloader.exe 창 안으로 드래그 앤 드롭하세요!
+# Fabric 로더는 설치기가 자동으로 설치합니다. (26.3용 0.19.5)
+# =======================================================
+
+VERSION=26.3
+LOADER=fabric
+
+# =======================================================
+# [쉐이더 구동 필수 모드] - 이 3개가 없으면 쉐이더가 안 켜집니다
+# =======================================================
+# Fabric API (Fabric 모드 공통 필수 라이브러리)
+https://modrinth.com/mod/fabric-api
+
+# Sodium (렌더링 최적화 / Iris 구동에 필요)
+https://modrinth.com/mod/sodium
+
+# Iris (쉐이더 로더 - 옵티파인 대체)
+https://modrinth.com/mod/iris
+
+# =======================================================
+# [쉐이더] 유명하고 검증된 예쁜 쉐이더 5종 (shaderpacks/ 폴더로 자동 분류)
+# 게임 내 [설정 > 비디오 설정 > 쉐이더 팩]에서 하나 골라 적용하세요
+# =======================================================
+# 컴플리멘터리 언바운드 - 가장 인기 많은 쉐이더, 화려한 빛/물/구름
+https://modrinth.com/shader/complementary-unbound
+
+# 컴플리멘터리 리이매진드 - 바닐라 감성을 살린 깔끔하고 예쁜 버전
+https://modrinth.com/shader/complementary-reimagined
+
+# BSL 쉐이더 - 오래된 정석 쉐이더, 밝고 따뜻한 색감
+https://modrinth.com/shader/bsl-shaders
+
+# 블리스 쉐이더 - 영화 같은 시네마틱 분위기, 볼륨감 있는 안개/구름
+https://modrinth.com/shader/bliss-shader
+
+# 실더스 바이브런트 - 전통의 명작, 선명하고 쨍한 색감 (사양별 Lite~Extreme)
+https://modrinth.com/shader/sildurs-vibrant-shaders

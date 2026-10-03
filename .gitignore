@@ -1,0 +1,11 @@
+# 빌드 결과물 (exe는 GitHub Actions가 빌드하고 서명해서 Releases에 올림)
+*.exe
+client/dist/
+dist/
+client/tools/sdk-buildtools/
+client/tools/artifact-signing/
+
+# 로컬 테스트 파일
+fabric-loader-*/
+*.zip
+__pycache__/
